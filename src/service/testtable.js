@@ -12,6 +12,21 @@ const getAll = async () => {
   return resp;
 };
 
+const postData = async () => {
+    const postPayload = {
+      name: `lanana-${new Date().getMilliseconds()}`,
+    }
+    const resp = await apiCall
+      .from(tableName)
+      .insert([
+        postPayload
+      ])
+      .select();
+  
+    return resp;
+  };
+
 export {
-    getAll
+    getAll,
+    postData
 }
